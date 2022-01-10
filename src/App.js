@@ -1,18 +1,6 @@
-import axios from 'axios'
 import {useEffect, useState} from 'react'
 import './App.css'
-
-const apiEndpoint = 'https://api.coindesk.com/v1/bpi/currentprice.json'
-
-export const read = async () => {
-  try {
-    const res = await axios.get(`${apiEndpoint}`)
-    return res
-  } catch (err) {
-    console.log(`Error : ${err}`)
-    return err.response.data.error
-  }
-}
+import {read} from './services/price'
 
 const App = () => {
   const [prices, setPrices] = useState({})
@@ -22,22 +10,31 @@ const App = () => {
   }, [])
 
   const loadPrices = async () => {
-    const {data} = await read()
+    const data = await read()
+    console.log(`result : ${data}`)
     setPrices(data)
-    const {time, disclaimer, chartName, bpi} = data
-    const {USD, GBP, EUR} = bpi
-    console.log(bpi)
   }
+
+  // const {time, disclaimer, chartName, bpi} = prices
+  // const {USD, GBP, EUR} = bpi
+  // console.log(`prices : ${JSON.stringify(prices, null, 4)}`)
 
   return (
     <>
-      {/* <div className="parent">
-        <div className="child">
-          <div className="grand-child">
-            <p>grandchild</p>
+      {prices.time && prices.disclaimer && prices.chartName && prices.bpi && (
+        <div className="card" style={{width: '18rem'}}>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">{prices.time.updated} </li>
+            <li className="list-group-item">{prices.disclaimer}</li>
+            <li className="list-group-item">{prices.chartName} </li>
+            <li className="list-group-item">{prices.bpi.USD.code} </li>
+          </ul>
+
+          <div className="card-body">
+            <button className="btn btn-primary">Review</button>
           </div>
         </div>
-      </div> */}
+      )}
       <div>
         <pre>{JSON.stringify(prices, null, 4)}</pre>
       </div>
@@ -46,3 +43,12 @@ const App = () => {
 }
 
 export default App
+
+/* 
+ <li className="list-group-item">{time.updated} </li>
+              <li className="list-group-item">{disclaimer}</li>
+              <li className="list-group-item">{chartName} </li>
+              <li className="list-group-item">{USD.code} </li>
+
+            
+               */
