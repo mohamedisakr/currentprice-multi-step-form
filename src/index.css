@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.parent {
+  background-color: rebeccapurple;
+}
+.child {
+  background-color: greenyellow;
+}
+.grand-child {
+  background-color: blue;
+}

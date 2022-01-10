@@ -31,13 +31,13 @@ const App = () => {
 
   return (
     <>
-      <div className="parent">
+      {/* <div className="parent">
         <div className="child">
           <div className="grand-child">
             <p>grandchild</p>
           </div>
         </div>
-      </div>
+      </div> */}
       <div>
         <pre>{JSON.stringify(prices, null, 4)}</pre>
       </div>
