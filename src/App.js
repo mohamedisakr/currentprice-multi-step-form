@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+
+const ApiEndpoint = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="parent">
+      <div className="child">
+        <div className="grand-child">
+          <p>grandchild</p>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
