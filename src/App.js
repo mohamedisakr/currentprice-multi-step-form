@@ -130,8 +130,7 @@ const Step1 = (props) => {
           </Field>
 
           <p>Enter your name:</p>
-          <Field name="userName" />
-          {/* <input type="text" id="name" name="userName"></input> */}
+          <Field name="name" />
 
           <button type="submit">Next</button>
         </Form>
@@ -140,9 +139,17 @@ const Step1 = (props) => {
   )
 }
 
-const Step2 = () => {
+const Step2 = (props) => {
+  const [amount, setAmount] = useState(0)
+
+  const handleSubmit = (values) => {
+    props.next(values)
+  }
+
+  const handleAmountChange = (e) => {}
+
   return (
-    <Formik>
+    <Formik initialValues={props.data} onSubmit={handleSubmit}>
       {() => (
         <Form>
           <input
@@ -153,7 +160,9 @@ const Step2 = () => {
             max="20"
             value="10"
             step="1"
+            onChange={handleAmountChange}
           ></input>
+          {/* <Field as="range" name="amount"></Field> */}
           <label>How unsatisfied are you?</label>
 
           <button type="submit">Next</button>
@@ -214,7 +223,7 @@ const App = () => {
   const [currentStep, setCurrentStep] = useState(0)
   const [data, setData] = useState({
     // satisfied: '',
-    userName: '',
+    name: '',
     // unsatisfied: '',
     amount: '',
     // indifferent: '',
@@ -256,8 +265,8 @@ const App = () => {
 
   return (
     <>
-      {steps[currentStep]}
-
+      {/* {steps[currentStep]} */}
+      {<MultiStepForm />}
       <br />
       <br />
 
