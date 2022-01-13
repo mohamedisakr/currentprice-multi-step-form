@@ -1,4 +1,5 @@
 import React from 'react'
+import MultiStepForm from './MultiStepForm'
 
 const ModalScreen = ({handleClose}) => {
   const modalStyle = {
@@ -19,10 +20,12 @@ const ModalScreen = ({handleClose}) => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">
-              Modal title
+              Customer Review
             </h5>
           </div>
-          <div className="modal-body">...</div>
+          <div className="modal-body">
+            <MultiStepForm></MultiStepForm>
+          </div>
           <div className="modal-footer">
             <button
               type="button"
