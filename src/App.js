@@ -33,13 +33,13 @@ const App = () => {
   }
 
   return (
-    <>
+    <div class="row d-flex justify-content-center">
       {bitCoin &&
         bitCoin.time &&
         bitCoin.disclaimer &&
         bitCoin.chartName &&
         bitCoin.bpi && (
-          <div className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
+          <div className="col-11 col-md-6 col-lg-3 mx-0 mb-4 mt-4">
             <div className="card p-0 overflow-hidden h-100 shadow">
               <div className="card-header">Bitcoin Rate</div>
               <ul className="list-group list-group-flush">
@@ -63,7 +63,7 @@ const App = () => {
         )}
       {modal ? <ModalScreen handleClose={handleClose} /> : ''}
       <div>{/* <pre>{JSON.stringify(bitCoin, null, 4)}</pre> */}</div>
-    </>
+    </div>
   )
 }
 
