@@ -1,9 +1,7 @@
 import {useEffect, useState} from 'react'
-import {Field, Form, Formik} from 'formik'
-import './App.css'
 import ModalScreen from './forms/ModalScreen'
-import MultiStepForm from './forms/MultiStepForm'
 import {read} from './services/bitcoin'
+import './App.css'
 
 const App = () => {
   const [bitCoin, setBitCoin] = useState({})
@@ -15,11 +13,9 @@ const App = () => {
 
   const loadBitcoin = async () => {
     const data = await read()
-    // console.log(`result : ${JSON.stringify(data, null, 4)}`)
     setBitCoin(data)
+    // console.log(`result : ${JSON.stringify(data, null, 4)}`)
   }
-
-  // console.log(`data : ${JSON.stringify(data, null, 4)}`)
 
   // const {time, disclaimer, chartName, bpi} = prices
   // const {USD, GBP, EUR} = bpi
@@ -38,11 +34,6 @@ const App = () => {
 
   return (
     <>
-      {/* {steps[currentStep]} */}
-      {/* {<MultiStepForm />} */}
-      <br />
-      <br />
-
       {bitCoin &&
         bitCoin.time &&
         bitCoin.disclaimer &&
@@ -50,8 +41,9 @@ const App = () => {
         bitCoin.bpi && (
           <div className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
             <div className="card p-0 overflow-hidden h-100 shadow">
+              <div className="card-header">Bitcoin Rate</div>
               <ul className="list-group list-group-flush">
-                {/* {Object.entries(prices).map(([key, value]) => (
+                {/* {Object.entries(bitCoin).map(([key, value]) => (
               <p key={key}>
                 {key}: {value}
               </p>
@@ -66,19 +58,6 @@ const App = () => {
                   Review
                 </button>
               </div>
-
-              {/*  Button trigger modal  */}
-              {/* <div className="card-body">
-              <button
-                type="button"
-                onClick={handlePreviewButton}
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target="#exampleModal"
-              >
-                Review
-              </button>
-            </div> */}
             </div>
           </div>
         )}
