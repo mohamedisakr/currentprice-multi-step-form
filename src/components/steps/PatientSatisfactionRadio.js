@@ -45,7 +45,7 @@ const PatientSatisfactionRadio = ({setFormData, formData, navigation}) => {
             type="button"
             onClick={() => go('review')}
           >
-            Review Order
+            Review
           </button>
         ) : (
           <>
@@ -64,7 +64,7 @@ const PatientSatisfactionRadio = ({setFormData, formData, navigation}) => {
                 next()
               }}
             >
-              Review Order ›
+              Review ›
             </button>
           </>
         )}
