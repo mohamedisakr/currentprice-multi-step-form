@@ -29,6 +29,16 @@ const PatientSatisfactionRadio = ({setFormData, formData, navigation}) => {
       ))}
       <pre>{JSON.stringify(selectedOption, null, 4)}</pre>
       <div className="w3-bar">
+        {
+          // if selectedOption = 'satisfied'
+          //   1. show review button
+          // 'unsatisfied'
+          //   1. show slider
+          //   2. review button
+          // 'indifferent'
+          //   1. show radio buttons
+          //   2. review button
+        }
         {isReviewMode ? (
           <button
             className="w3-button w3-dark-grey w3-border w3-right"
