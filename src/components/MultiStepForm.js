@@ -5,6 +5,7 @@ import PatientSatisfaction from './steps/PatientSatisfaction'
 import PatientSatisfactionRadio from './steps/PatientSatisfactionRadio'
 import Review from './steps/Review'
 import Submit from './steps/Submit'
+import Confirmation from './steps/Confirmation'
 
 const defaultData = {
   name: '',
@@ -15,20 +16,26 @@ const defaultData = {
 }
 
 const steps = [
-  {id: 'CustomerInfo'},
-  {id: 'PatientSatisfactionRadio'},
+  {id: 'CustomerInfo', Component: CustomerInfo},
+  {id: 'PatientSatisfactionRadio', Component: PatientSatisfactionRadio},
+  {id: 'Confirmation', Component: Confirmation},
   // {id: 'PatientSatisfaction'},
-  {id: 'Review'},
-  {id: 'Submit'},
+  // {id: 'Review'},
+  // {id: 'Submit'},
 ]
 
 const MultiStepForm = () => {
   const [formData, setFormData] = useForm(defaultData)
   const {step, navigation} = useStep({steps, initialStep: 0})
-
+  const {Component} = step
   const props = {formData, setFormData, navigation}
+  return <Component {...props} />
+}
 
-  switch (step.id) {
+export default MultiStepForm
+
+/*
+ switch (step.id) {
     case 'CustomerInfo':
       return <CustomerInfo {...props} />
     // case 'PatientSatisfaction':
@@ -42,6 +49,4 @@ const MultiStepForm = () => {
     default:
       return <></>
   }
-}
-
-export default MultiStepForm
+*/
