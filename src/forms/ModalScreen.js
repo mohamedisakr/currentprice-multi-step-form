@@ -1,11 +1,13 @@
 import React from 'react'
-import MultiStepForm from './MultiStepForm'
+// import MultiStepForm from './MultiStepForm'
+import MultiStepForm from '../components/MultiStepForm'
 
 const ModalScreen = ({handleClose}) => {
   const modalStyle = {
     display: 'block',
-    backgroundColor: 'rgba(0,0,0,0.8)',
+    backgroundColor: 'rgba(0,0,0,0.08)',
   }
+
   return (
     <div
       className="modal show fade"
