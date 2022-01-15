@@ -28,7 +28,7 @@ const PatientSatisfactionRadio = ({setFormData, formData, navigation}) => {
             type="radio"
           />
         ))}
-        <pre>{JSON.stringify(selectedOption, null, 4)}</pre>
+        {/* <pre>{JSON.stringify(selectedOption, null, 4)}</pre> */}
         <div className="w3-bar">
           {
             // if selectedOption = 'satisfied'
